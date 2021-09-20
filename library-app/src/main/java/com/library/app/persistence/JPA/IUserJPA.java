@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface IUserJPA extends JpaRepository<UserLibrary, Long> {
     List<UserLibrary> getUsersByRol(Rol rol);
+
 }

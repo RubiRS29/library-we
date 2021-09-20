@@ -7,12 +7,14 @@ import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.Mapper;
-
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+
 @Component
 @Mapper(componentModel = "spring")
 public interface IUserMapper {
-
     @Mappings({
             @Mapping(source = "id", target = "idUser"),
             @Mapping(source = "name", target = "firstName"),
@@ -29,7 +31,8 @@ public interface IUserMapper {
     })
     UserDomain toUser(UserLibrary user);
 
+    List<UserDomain> toUsers(List<UserLibrary> users);
+
     @InheritInverseConfiguration
     UserLibrary toUserDomain(UserDomain userDomain);
-
 }
